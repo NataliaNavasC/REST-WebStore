@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings ptype="MONOLITH" ppkg="Model" epkg="Entities" v="5.4.3" rws="_16327843100866" Pws="_16327843100866" cws="_16327843100866" persistenceUnitName="DEFAULT_PU" sm="false" xs="false" id="_16327843100865" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity compositePrimaryKeyClass="PersonPK" abs="false" class="Person" v="true" jbn="false" xre="false" m="false" rootElement="_16327843100865" id="_16327843143217">
+        <ath>User</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="username" ft="false" id="_163278542547010">
+                <xwm/>
+                <xm/>
+                <column unique="true" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="password" id="_163278544388311">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="rol" id="_163278549070312">
+                <xwm/>
+                <xm/>
+            </basic>
+            <id attribute-type="int" v="true" xvt="" name="id" id="_16327843143518">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Person.findAll">
+            <query>Select e from Person e</query>
+        </nq>
+        <nq e="false" name="Person.findByUsername">
+            <query>Select p from Person p where p.username=:username</query>
+        </nq>
+        <nq e="false" name="Person.findByPassword">
+            <query>Select p from Person p where p.password=:password</query>
+        </nq>
+        <nq e="false" name="Person.findByRol">
+            <query>Select p from Person p where p.rol=:rol</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="UserPK" abs="false" class="User" superclassId="_16327843143217" v="true" jbn="false" xre="false" m="false" rootElement="_16327843100865" id="_163278551519213">
+        <ath>User</ath>
+        <attributes>
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_163278568948921" v="true" xvt="" name="purchases" id="_163278619691945">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+        </attributes>
+        <nq e="false" name="User.findAll">
+            <query>Select e from User e</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="AdministratorPK" abs="false" class="Administrator" superclassId="_16327843143217" v="true" jbn="false" xre="false" m="false" rootElement="_16327843100865" id="_163278563458217">
+        <ath>User</ath>
+        <attributes/>
+        <nq e="false" name="Administrator.findAll">
+            <query>Select e from Administrator e</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="PurchasePK" abs="false" class="Purchase" v="true" jbn="false" xre="false" m="false" rootElement="_16327843100865" id="_163278568948921">
+        <ath>User</ath>
+        <attributes>
+            <basic attribute-type="java.time.LocalDateTime" v="true" xvt="" name="date" ft="false" id="_163278574006224">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="total" ft="false" id="_163278577221727">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="username" ft="false" id="_163278578281728">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="shippingTax" ft="false" id="_163278578735029">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="shippingCharge" ft="false" id="_163278574861025">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="deliveryAddres" ft="false" id="_163278575412426">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="paymentMethod" ft="false" id="_163278583622431">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_163278595740432" v="true" xvt="" name="puzzles" id="_163278622905547">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163278568948922">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Purchase.findAll">
+            <query>Select e from Purchase e</query>
+        </nq>
+        <nq e="false" name="Purchase.findByDate">
+            <query>Select p from Purchase p where p.date=:date</query>
+        </nq>
+        <nq e="false" name="Purchase.findByShippingCharge">
+            <query>Select p from Purchase p where p.shippingCharge=:shippingCharge</query>
+        </nq>
+        <nq e="false" name="Purchase.findByDeliveryAddres">
+            <query>Select p from Purchase p where p.deliveryAddres=:deliveryAddres</query>
+        </nq>
+        <nq e="false" name="Purchase.findByTotal">
+            <query>Select p from Purchase p where p.total=:total</query>
+        </nq>
+        <nq e="false" name="Purchase.findByUsername">
+            <query>Select p from Purchase p where p.username=:username</query>
+        </nq>
+        <nq e="false" name="Purchase.findByShippingTax">
+            <query>Select p from Purchase p where p.shippingTax=:shippingTax</query>
+        </nq>
+        <nq e="false" name="Purchase.findByAttribute">
+            <query>Select p from Purchase p where p.attribute=:attribute</query>
+        </nq>
+        <nq e="false" name="Purchase.findByPaymentMethod">
+            <query>Select p from Purchase p where p.paymentMethod=:paymentMethod</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="PuzzlePK" abs="false" class="Puzzle" v="true" jbn="false" xre="false" m="false" rootElement="_16327843100865" id="_163278595740432">
+        <ath>User</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="name" ft="false" id="_163278596944435">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="description" ft="false" id="_163278598600336">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="price" ft="false" id="_163278599273437">
+                <xwm/>
+                <xm/>
+                <column unique="false" nullable="false" insertable="true" updatable="true" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="imageSource" id="_163278600237838">
+                <xwm/>
+                <xm/>
+            </basic>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163278595740433">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Puzzle.findAll">
+            <query>Select e from Puzzle e</query>
+        </nq>
+        <nq e="false" name="Puzzle.findByName">
+            <query>Select p from Puzzle p where p.name=:name</query>
+        </nq>
+        <nq e="false" name="Puzzle.findByDescription">
+            <query>Select p from Puzzle p where p.description=:description</query>
+        </nq>
+        <nq e="false" name="Puzzle.findByPrice">
+            <query>Select p from Puzzle p where p.price=:price</query>
+        </nq>
+        <nq e="false" name="Puzzle.findByImageSource">
+            <query>Select p from Puzzle p where p.imageSource=:imageSource</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="ShoppingCartPK" abs="false" class="ShoppingCart" v="true" jbn="false" xre="false" m="false" rootElement="_16327843100865" id="_163278601123239">
+        <ath>User</ath>
+        <attributes>
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_163278595740432" v="true" xvt="" name="puzzles" id="_163278624985949">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+            <one-to-one own="true" orp="false" optional="true" primaryKey="false" connected-entity-id="_163278551519213" v="true" xvt="" name="user" id="_163278626632551">
+                <xwm/>
+                <xm/>
+            </one-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163278601123240">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="ShoppingCart.findAll">
+            <query>Select e from ShoppingCart e</query>
+        </nq>
+    </entity>
+    <wsl>
+        <ws n="Main" id="_16327843100866">
+            <i ref="_16327843143217" x="587" y="159"/>
+            <i ref="_163278563458217" x="783" y="406"/>
+            <i ref="_163278601123239" x="422" y="583"/>
+            <i ref="_163278551519213" x="459" y="406"/>
+            <i ref="_163278568948921" x="129" y="188"/>
+            <i ref="_163278595740432" x="99" y="526"/>
+        </ws>
+    </wsl>
+</entity-mappings>

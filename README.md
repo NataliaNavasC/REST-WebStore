@@ -1,2 +1,3 @@
-# REST-WebStore
-Puzzle Web Store | Back-end: Spring boot | Front-end: Angular
+Created by:
+20295561 - Andrés Giraldo
+20288072 - Natalia Navas

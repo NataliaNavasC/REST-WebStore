@@ -1,0 +1,13 @@
+<app-navegation-bar></app-navegation-bar>
+<div class="shoppingBackground">
+    <div class="w-100 py-5 px-5 row text-center">
+        <h1>Products in Cart</h1>
+        <div class="col text-end">
+            <button class="btn btn-primary textProperties" [routerLink]="['/purchase-form']" routerLinkActive="router-link-active" >Buy Now</button>
+        </div>
+    </div>
+    <div class="listContainer py-5">
+        <p class="textProperties" *ngIf="isEmpty">Shopping cart is empty</p>
+        <app-product-order [puzzleOrders] = cart.puzzleOrders class="d-flex flex-row flex-wrap justify-content-center"></app-product-order>
+    </div>
+</div>

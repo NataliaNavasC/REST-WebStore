@@ -1,0 +1,25 @@
+
+.roundedBorder{
+    border: rgb(102, 102, 102) solid 1px;
+    border-radius: 20px;
+    background-color: #212529;
+}
+
+.formBackground{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.roundedInput{
+    border-radius: 15px;
+}
+
+.textProperties{
+    color: black;
+}
+
+.invalidInput{
+    color: red;
+}

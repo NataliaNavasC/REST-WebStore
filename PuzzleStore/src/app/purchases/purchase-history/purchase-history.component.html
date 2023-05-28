@@ -1,0 +1,70 @@
+<app-navegation-bar></app-navegation-bar>
+<div class="purchaseHistoryContainer p-5">
+    <h1 class="text-center mb-5">Purchase history</h1>
+    <div *ngIf="isAdmin" class="row text-center">
+        <div class="col">
+            <h2>Total sales: </h2>
+            <h2>{{totalSales}}</h2>
+        </div>
+        <div class="col">
+            <h2>Profits: </h2>
+            <h2>${{profits}}</h2>
+        </div>
+    </div>
+    <div class="container cont">
+        <div *ngIf="isAdmin" class=" card col-10 shadow mx-auto p-4 purchaseContainer2 my-4 ">
+            <div class="row space-arround ">
+                <div class="col text-center">
+                    <input class="mx-2" name="options" id="op1" type="radio" value="all" [(ngModel)]="filter">
+                    <label for="op1" class="textPropertie">All purchases</label><br>
+                </div>
+                <div class="col text-center">
+                    <input class="mx-2" name="options" id="op2" type="radio" value="last-month" [(ngModel)]="filter">
+                    <label for="op2" class="textPropertie">Last Month</label><br>
+                </div>
+                <div class="col text-center">
+                    <input class="mx-2" name="options" id="op3" type="radio" value="top-five" [(ngModel)]="filter">
+                    <label for="op3" class="textPropertie">Top five</label><br>
+                </div>
+                <div class="col text-center">
+                    <input class="mx-2" name="options" id="op4" type="radio" value="top-ten" [(ngModel)]="filter">
+                    <label for="op4" class="textPropertie">Top ten</label><br>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-between align-self-center mt-4 btnFilter">
+                <button class="btn btn-primary" (click)="resetFilterParameters()">Filter</button>
+            </div>
+
+        </div>
+        <div *ngFor="let purchase of purchases" class="card col-10 shadow mx-auto p-5 purchaseContainer my-4">
+            <h3 class="text-center">Purchase #{{purchase.id}}</h3>
+            <div class="row mt-3">
+                <div class="col-8">
+                    <div class="row">
+                        <label class="col">Username</label>
+                        <label class="col">{{purchase.username}}</label>
+                    </div>
+                    <div class="row">
+                        <label class="col">Total</label>
+                        <label class="col">{{purchase.total}}</label>
+                    </div>
+                    <div class="row">
+                        <label class="col">Date</label>
+                        <label class="col">{{purchase.date|date:'mediumDate'}}</label>
+                    </div>
+                </div>
+                <div class="col-4 text-center my-auto">
+                    <button class=" btn btn-primary col 2-100" [routerLink]="['/purchase', purchase.id]">View
+                        details</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class=" row textProperties fs-4 mb-4 ">
+                <button class="col btnPages" (click)="previousPage()">&lt;</button>
+                <p class="col">{{page+1}}/{{totalPages}}</p>
+                <button class="col btnPages" (click)="nextPage()">&gt;</button>
+            </div>
+        </div>
+    </div>
+</div>

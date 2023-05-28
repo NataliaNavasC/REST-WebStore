@@ -1,0 +1,51 @@
+<app-navegation-bar></app-navegation-bar>
+<div class="formBackground my-5">
+    <form class="mx-auto mt-4 d-flex w-50 p-5 flex-column roundedBorder">
+
+        <p *ngIf="isEdit" class="mx-auto">Edit product</p>
+        <p *ngIf="!isEdit" class="mx-auto">New product</p>
+    
+        <div class="form-floating mb-4 shadow roundedInput">
+            <input required type="text" class="form-control roundedInput" id="productNameInput" name="productName" placeholder="Name" [(ngModel)]="puzzle.name" #productNameInput="ngModel">
+            <label class="textProperties" for="productNameInput">Product name:</label>
+            <div *ngIf="productNameInput.invalid && (productNameInput.dirty || productNameInput.touched)">
+                <div *ngIf="productNameInput.errors?.required" class="invalidInput p-1">
+                    Product name is required
+                </div>
+            </div>
+        </div>
+        <div class="form-floating mb-4 shadow roundedInput">
+            <input required type="text" class="form-control roundedInput" id="productDescriptionInput" name="productDescription" placeholder="Description" [(ngModel)]="puzzle.description" #productDescriptionInput="ngModel">
+            <label class="textProperties" for="productDescriptionInput">Product description:</label>
+            <div *ngIf="productDescriptionInput.invalid && (productDescriptionInput.dirty || productDescriptionInput.touched)">
+                <div *ngIf="productDescriptionInput.errors?.required" class="invalidInput p-1">
+                    Product description is required
+                </div>
+            </div>
+        </div>
+        <div class="form-floating mb-4 shadow roundedInput">
+            <input required type="url" class="form-control roundedInput" id="productURLInput" name="productURL" placeholder="https" [(ngModel)]="puzzle.imageSource" #productURLInput="ngModel">
+            <label class="textProperties" for="productURLInput">Product image URL: </label>
+            <div *ngIf="productURLInput.invalid && (productURLInput.dirty || productURLInput.touched)">
+                <div *ngIf="productURLInput.errors?.required" class="invalidInput p-1">
+                    Product image URL is required
+                </div>
+            </div>
+        </div>
+        <div class="form-floating mb-4 shadow roundedInput">
+            <input required type="number" class="form-control roundedInput" id="productPriceInput" name="productPrice" placeholder="$" [(ngModel)]="puzzle.price" #productPriceInput="ngModel">
+            <label class="textProperties" for="productPriceInput">Price (USD):</label>
+            <div *ngIf="productPriceInput.invalid && (productPriceInput.dirty || productPriceInput.touched)">
+                <div *ngIf="productPriceInput.errors?.required" class="invalidInput p-1">
+                    Product price is required
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-around mt-2">
+            <button *ngIf="isEdit" type="submit" class="btn btn-secondary btn-block mb-2 w-25" (click)="onClickDeleteProduct()">Delete</button>
+            <button *ngIf="!isEdit" type="submit" class="btn btn-primary btn-block mb-2 w-25" (click)="onClickCreateProduct()">Create product</button>
+            <button *ngIf="isEdit" type="submit" class="btn btn-primary btn-block mb-2 w-25" (click)="onClickEditProduct()">Edit product</button>
+        </div>
+    </form>
+</div>
+

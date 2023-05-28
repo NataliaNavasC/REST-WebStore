@@ -1,0 +1,28 @@
+.iconNavBar{
+    width: 2vw;
+    height: 2vw;
+}
+
+.nav-link{
+    color: rgb(192, 191, 191);
+    transition: 0.5s;
+}
+
+.nav-link:hover{
+    color: white;
+    transform: scale(1.05);
+}
+
+.btnNavBar:hover{
+    cursor: pointer;
+}
+
+.itemCount{
+    width: calc(0.8vw + 0.8vw);
+    height: calc(0.8vw + 0.8vw);
+    color: black;
+    text-align: center;
+    background-color: white;
+    border-radius: 50%;
+    font-size: calc(0.5vw + 0.5vw);
+}

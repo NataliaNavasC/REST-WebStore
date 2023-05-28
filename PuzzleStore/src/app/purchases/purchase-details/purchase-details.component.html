@@ -1,0 +1,69 @@
+<app-navegation-bar></app-navegation-bar>
+<div class="purchaseDetailsContainer pb-5 m-5">
+    <h1 class="text-center">Purchase details</h1>
+    <div class="row detailsContainer">
+        <div class="col leftCol my-5">
+            <div class="row">
+                <div class=" card col-10 shadow mx-5 p-5 infoContainer text-center fs-5">
+                    <h3 class="mb-3">Details</h3>
+                    <div class="row">
+                        <label class="col text-start">Products</label>
+                        <label class="col text-end">${{totalPuzzles}}</label>
+                    </div>
+                    <div class="row">
+                        <label class="col text-start">Shipping charge</label>
+                        <label class="col text-end">${{shippingCharge}}</label>
+                    </div>
+                    <div class="horizontalLine mt-3 mb-2"></div>
+                    <div class="row">
+                        <label class="col text-start">Total</label>
+                        <label class="col text-end">${{purchase.total}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" card col-10 shadow p-5 mt-5 mx-5 infoContainer text-center fs-5">
+                    <h3 class="mb-3">Details</h3>
+                    <div class="row">
+                        <label class="col text-start">User</label>
+                        <label class="col text-end">{{purchase.username}}</label>
+                    </div>
+                    <div class="row">
+                        <label class="col text-start">Purchase ID</label>
+                        <label class="col text-end">{{purchase.id}}</label>
+                    </div>
+                    <div class="row">
+                        <label class="col text-start">Delivery address</label>
+                        <label class="col text-end">{{purchase.deliveryAddress}}</label>
+                    </div>
+                    <div class="row">
+                        <label class="col text-start">Date</label>
+                        <label class="col text-end">{{purchase.date|date:'mediumDate'}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col rightCol my-5">
+            <div class="row">
+                <div class="card col-10 shadow mx-5 p-5 infoContainer text-center fs-5">
+                    <h3 class="mb-3">Puzzles</h3>
+                    <!-- TODO: Mostrar la cantidad -->
+                    <div class="PuzzlesListContainer p-5">
+                        <div  class="row listItem mb-4 font-weight-bold fs-5">
+                            <label class="col text-start">Puzzle</label>
+                            <label class="col text-center">Unit price</label>
+                            <label class="col text-end">Quantity</label>
+                        </div>
+                        <div class="horizontalLine mt-3 mb-2"></div>
+                        <div *ngFor="let puzzleOrder of purchase.puzzleOrders" class="row listItem mb-4">
+                            <label class="col text-start">{{puzzleOrder.puzzle.name}}</label>
+                            <label class="col text-center">${{puzzleOrder.puzzle.price}}</label>
+                            <label class="col text-end">{{puzzleOrder.count}}</label>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

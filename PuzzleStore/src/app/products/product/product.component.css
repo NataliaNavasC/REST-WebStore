@@ -1,0 +1,21 @@
+.cardProperties{
+    width: calc(12vw + 12vw);
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 2%;
+}
+
+.imgProperties{
+    width: calc(5vw + 5vw);
+    height: calc(5vw + 5vw);
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.textProperties{
+    font-size: calc(0.6em + 0.6vw);
+}
+
+.textButtonProperties{
+    font-size: calc(0.5em + 0.5vw);
+}

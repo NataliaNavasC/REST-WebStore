@@ -1,0 +1,49 @@
+<app-navegation-bar></app-navegation-bar>
+<h1 class="text-center mt-2">Payment</h1>
+<div class="p-5 d-flex flex-row justify-content-around">
+    <section class=" h-25 card col-5 shadow mt-2 p-5 infoContainer text-center fs-5">
+        <h3 class="mb-3">Details</h3>
+        <div class="row">
+            <label class="col text-start">Products</label>
+            <label class="col text-end">${{purchase.productsTotal}}</label>
+        </div>
+        <div class="row">
+            <label class="col text-start">Shipping charge</label>
+            <label class="col text-end">${{purchase.shippingCharge}}</label>
+        </div>
+        <div class="horizontalLine mt-3 mb-2"></div>
+        <div class="row">
+            <label class="col text-start">Total</label>
+            <label class="col text-end">${{purchase.total}}</label>
+        </div>
+    </section>
+    <section class=" card col-5 shadow p-5 infoContainer fs-5">
+        <h3 class="mb-3 text-center">Payment</h3>
+        <div class="form-floating mb-3 shadow roundedInput my-3">
+            <input required #deliveryAddress="ngModel" type="text" class="form-control roundedInput" id="deliveryAddress" name="deliveryAddress" placeholder="Calle" [(ngModel)]="purchase.deliveryAddress">
+            <label class="textProperties" for="deliveryAddress">Delivery address</label>
+            <div *ngIf="deliveryAddress.invalid && (deliveryAddress.dirty || deliveryAddress.touched)">
+                <div *ngIf="deliveryAddress.errors?.required" class="invalidInput p-1">
+                    Address is required
+                </div>
+            </div>
+        </div>
+        <div class="form-group my-3">
+            <label>Payment method</label>
+            <select name="paymentMethod" class="form-select mt-2">
+                <option value="Cash">Cash</option>
+                <option value="Credit card">Credit card</option>
+                <option value="Debit card">Debit card</option>
+                <option value="PSE">PSE</option>
+            </select>
+        </div>
+        <div class="form-group my-3">
+            <div class="row">
+                <p class="col text-end">Total: ${{purchase.total}}</p>
+            </div>
+        </div>
+        <div class="row mx-5 my-3">
+            <button class="btn btn-primary w-10" (click)="buyNow()">Buy now</button>
+        </div>
+    </section>
+</div>

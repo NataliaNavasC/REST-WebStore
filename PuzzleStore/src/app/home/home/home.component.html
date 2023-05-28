@@ -1,0 +1,15 @@
+<app-navegation-bar></app-navegation-bar>
+<div class="homeBackground">
+    <div class="w-100 py-5 px-5 row text-center">
+        <div class="col"></div>
+        <div class="col text-center">
+            <h1>Our products</h1>
+        </div>
+        <div class="col text-end">
+            <button class="btn btn-primary textProperties" *ngIf="!isHidden" [routerLink]="['/product-form']" routerLinkActive="router-link-active" >Create puzzle</button>
+        </div>
+    </div>
+    <div class="listContainer py-5 mx-3">
+        <app-product-list></app-product-list>
+    </div>
+</div>

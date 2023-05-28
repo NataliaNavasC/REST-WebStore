@@ -1,0 +1,50 @@
+.purchaseHistoryContainer{
+    height: 100%;
+    
+}
+
+h1,h2,p{
+    color: #212529;
+}
+
+h3,label{
+    color: white;
+}
+
+.textPropertie{
+    color: black;
+}
+
+.purchaseContainer{
+    border-radius: 20px;
+    background-color: #212529;
+}
+
+.purchaseContainer2{
+    color: black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+
+.btnPages{
+    color: black;
+    background-color: transparent;
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+    vertical-align: middle;
+    border: transparent;
+
+}
+
+.horizontalLine{
+    width: 100%;
+    height: 2px;
+    border-bottom: rgb(24, 24, 24) solid 3px;
+}
+
+
+.btnFilter{
+    width: 6vw;
+}

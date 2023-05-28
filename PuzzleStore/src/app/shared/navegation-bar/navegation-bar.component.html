@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand mx-5" [routerLink]="['/home']">Puzzle Store</a>
+    <div class="nav-item d-flex flex-row align-items-center">
+        <img class="iconNavBar" src="/assets/icons/icon-home.png">
+        <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="nav-link">Home</a>
+    </div>
+    <div *ngIf="isAdmin" class="nav-item d-flex flex-row align-items-center">
+        <img class="iconNavBar" src="/assets/icons/icon-report.png">
+        <a [routerLink]="['/purchase-history']" class="nav-link">Reports</a>
+    </div>
+    <div *ngIf="!isAdmin" class="nav-item d-flex flex-row align-items-center">
+        <img class="iconNavBar" src="/assets/icons/icon-order-history.png">
+        <a [routerLink]="['/purchase-history']" class="nav-link">Purchase history</a>
+    </div>
+    <div *ngIf="!isAdmin" class="nav-item d-flex flex-row align-items-center">
+        <img class="iconNavBar" src="/assets/icons/icon-shopping-cart.png">
+        <a [routerLink]="['/cart']" class="nav-link">Shopping cart</a>
+        <!--<p class="itemCount my-auto">{{cart.puzzleOrders.length}}</p> -->
+    </div>
+    <div class="nav-item d-flex flex-row align-items-center">
+        <img class="iconNavBar" src="/assets/icons/icon-logout.png">
+        <a (click)="logout()" class="nav-link btnNavBar">Logout</a>
+    </div>
+</nav>

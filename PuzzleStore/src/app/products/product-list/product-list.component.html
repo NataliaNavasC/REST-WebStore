@@ -1,0 +1,10 @@
+<section class="my-4 listProperties ">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class=" row textProperties fs-4 mb-4 ">
+            <button class="col btnPages" (click)="previousPage()">&lt;</button>
+            <p class="col">{{page+1}}/{{totalPages}}</p>
+            <button class="col btnPages" (click)="nextPage()">&gt;</button>
+        </div>
+    </div>
+    <app-product [puzzles] = puzzles class="d-flex flex-row flex-wrap justify-content-center"></app-product>
+</section>

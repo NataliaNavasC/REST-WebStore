@@ -1,0 +1,13 @@
+<div *ngFor="let puzzle of puzzles" class="card col-3 cardProperties shadow">
+    <img [src]="puzzle.imageSource" alt="Puzzle image" class="card-img-top my-1 mx-auto rounded imgProperties">
+    <p class="card-header textProperties">{{puzzle.name}}</p>
+    <div class="card-body">
+        <h5 class="card-title textProperties">Description</h5>
+        <p class="card-text textProperties">{{puzzle.description}}</p>
+    </div>
+    <div class="card-footer d-flex flex-row flex-wrap justify-content-between">
+        <p class="card-text my-auto textProperties">$ {{puzzle.price}} USD</p>
+        <button *ngIf="!isAdmin && !isShoppingCart" type="button" class="btn btn-secondary textButtonProperties" (click)="onClickAddToCart(puzzle)">Add to cart</button>
+        <button *ngIf="isAdmin && !isShoppingCart" type="button" class="btn btn-primary textButtonProperties" [routerLink]="['/product-form', puzzle.id]">Edit puzzle</button>
+    </div>
+</div>

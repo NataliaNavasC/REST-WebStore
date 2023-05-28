@@ -1,0 +1,44 @@
+<div class=" loginContainer">
+    <div class="container shadow p-3 my-auto py-auto bootcontainer">
+        <div class="row p-4">
+            <div class="col leftCol text-center py-5">
+                <img src="/assets/icons/icon-logo.png" alt="Logo">
+                <h3 class="mt-3 mb-5 text-center">Our purpose is to be a reliable, safe and high quality online puzzle
+                    store. Our goal is to facilitate the acquisition of any type of puzzle in Bogotá.</h3>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" (click)="signUp()">Sign Up</button>
+                </div>
+            </div>
+            <div class="col rounded RightCol p-5">
+                <h2 class="fw-bold text-center">Login</h2>
+                <p *ngIf="invalidCredentials" class="invalidInput">Invalid credentials</p>
+                <!-- Login -->
+                <form>
+                    <div class="form-floating mb-4 shadow my-4 roundedInput">
+                        <input required type="text" class="form-control roundedInput" name="usernameInput"
+                            id="usernameInput" placeholder="username" [(ngModel)]="username" #usernameInput="ngModel">
+                        <label for="usernameInput">Username</label>
+                        <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)">
+                            <div *ngIf="usernameInput.errors?.required" class="invalidInput p-1">
+                                User name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-5 shadow roundedInput">
+                        <input required type="password" class="form-control roundedInput" name="passwordInput" id="passwordInput"
+                            placeholder="username" [(ngModel)]="password" #passwordInput="ngModel">
+                        <label for="passwordInput">Password</label>
+                        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+                            <div *ngIf="passwordInput.errors?.required" class="invalidInput p-1">
+                                Password is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-primary col mx-5" (click)="login()">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
